@@ -21,6 +21,8 @@ if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 if "groq_key" not in st.session_state:
     st.session_state.groq_key = ""
+if "chat_key" not in st.session_state:
+    st.session_state.chat_key = 0
 
 st.markdown("""
 <style>
@@ -676,7 +678,7 @@ if st.session_state.report_done and st.session_state.report_text:
     user_question = st.text_input(
         "💬  ASK ABOUT THE COMPANY",
         placeholder=f"e.g. What is {st.session_state.company_name}'s biggest risk?",
-        key="chat_input"
+        key=f"chat_input_{st.session_state.chat_key}"
     )
 
     col1, col2 = st.columns([3, 1])
@@ -712,6 +714,7 @@ Be concise, professional, and insightful. Keep answers under 150 words."""
 
                 st.session_state.chat_history.append({"role": "user",      "content": user_question})
                 st.session_state.chat_history.append({"role": "assistant", "content": ai_reply})
+                st.session_state.chat_key += 1
                 st.rerun()
 
             except Exception:
