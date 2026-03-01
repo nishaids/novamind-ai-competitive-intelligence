@@ -527,7 +527,7 @@ st.markdown("""
 
 # ── INPUTS ────────────────────────────────────────────────────────────────────
 st.markdown('<div class="input-container">', unsafe_allow_html=True)
-api_key = st.text_input("🔑  GROQ API KEY",   type="password", placeholder="gsk_••••••••••••••••••••••••••••••••••••")
+api_key = st.secrets["GROQ_API_KEY"]
 company = st.text_input("🏢  TARGET COMPANY", placeholder="e.g.  TESLA  ·  APPLE  ·  ZOHO  ·  INFOSYS")
 st.markdown("<br>", unsafe_allow_html=True)
 generate = st.button("⚡  INITIALIZE INTELLIGENCE SCAN")
@@ -545,8 +545,8 @@ st.markdown("""
 
 # ── GENERATE ──────────────────────────────────────────────────────────────────
 if generate:
-    if not api_key or not company:
-        st.error("⚠️  AUTHENTICATION REQUIRED — Enter API Key and Target Company")
+    if not company:
+        st.error("st.error("⚠️  Please enter a Target Company name!")
     else:
         st.session_state.groq_key    = api_key
         st.session_state.company_name = company
