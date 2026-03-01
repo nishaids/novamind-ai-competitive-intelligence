@@ -61,7 +61,7 @@ section[data-testid="stSidebar"] { display: none !important; }
 }
 .hero-title {
     font-family: 'Orbitron', monospace;
-    font-size: 3.5rem;
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
     font-weight: 900;
     background: linear-gradient(135deg, #ff0080, #ff6ec7, #00c8ff, #0080ff);
     -webkit-background-clip: text;
