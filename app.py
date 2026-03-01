@@ -546,7 +546,7 @@ st.markdown("""
 # ── GENERATE ──────────────────────────────────────────────────────────────────
 if generate:
     if not company:
-        st.error("st.error("⚠️  Please enter a Target Company name!")
+        st.error("⚠️ Please enter a Target Company name!")
     else:
         st.session_state.groq_key    = api_key
         st.session_state.company_name = company
